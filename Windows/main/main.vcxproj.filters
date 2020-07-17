@@ -15,11 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Main.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Dependencies\dlg\include\dlg\dlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -313,14 +308,15 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="Dependencies\dlg\lib\dlg.lib" />
-    <Library Include="Dependencies\freetype2\lib\freetype.lib" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Dependencies\dlg\lib\dlg.pdb" />
     <None Include="Dependencies\freetype2\lib\freetype.pdb" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="src\OpenSans-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Main.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
