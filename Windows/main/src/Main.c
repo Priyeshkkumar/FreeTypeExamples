@@ -3,11 +3,10 @@
 /* This small program shows how to print a rotated string with the */
 /* FreeType 2 library.                                             */
 
-
 #include <stdio.h>
+#include <Windows.h>
 #include <string.h>
 #include <math.h>
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
@@ -70,6 +69,12 @@ int
 main(int     argc,
     char** argv)
 {
+    static LARGE_INTEGER freq;
+    static LARGE_INTEGER count1;
+    static LARGE_INTEGER count2;
+
+    QueryPerformanceFrequency(&freq);
+
     FT_Library    library;
     FT_Face       face;
 
@@ -97,6 +102,8 @@ main(int     argc,
     num_chars = strlen(text);
     angle = (25.0 / 360) * 3.14159 * 2;      /* use 25 degrees     */
     target_height = HEIGHT;
+
+    QueryPerformanceCounter(&count1);
 
      error = FT_Init_FreeType(&library);              /* initialize library */
     /* error handling omitted */
@@ -149,6 +156,10 @@ main(int     argc,
 
     FT_Done_Face(face);
     FT_Done_FreeType(library);
+
+    QueryPerformanceCounter(&count2);
+    double t = (double)((count2.QuadPart - count1.QuadPart) / freq.QuadPart);
+    printf("%f", t);
 
     return 0;
 }

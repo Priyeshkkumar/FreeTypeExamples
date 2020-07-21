@@ -5,7 +5,7 @@
 #ifndef INC_DLG_OUTPUT_H_
 #define INC_DLG_OUTPUT_H_
 
-#include "dlg.h"
+#include <dlg/dlg.h>
 #include <stdio.h>
 
 #ifdef __cplusplus
